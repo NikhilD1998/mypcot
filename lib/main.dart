@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:mypcot_assignment/navigations/bottom_navbar.dart';
 
 import 'helpers/colors.dart';
-import 'home_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
         primaryColor: AppColors.navy,
         scaffoldBackgroundColor: Colors.white,
       ),
-      home: const HomeScreen(),
+      home: BottomNavBar(),
     );
   }
 }
