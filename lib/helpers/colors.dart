@@ -10,6 +10,7 @@ class AppColors {
   static const Color royalBlue = Color(0xFF234DDC);
   static const Color pink = Color(0xFFCE316A);
   static const Color coral = Color(0xFFFE804E);
+  static const Color white = Color(0xFFFFFFFF);
 }
 
 // ...existing code...

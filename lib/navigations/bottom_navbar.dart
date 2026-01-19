@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mypcot_assignment/helpers/colors.dart';
+import 'package:mypcot_assignment/screens/home_screen.dart';
 
 class BottomNavBar extends StatefulWidget {
   const BottomNavBar({super.key});
@@ -35,7 +36,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
   void initState() {
     super.initState();
     _screens = const [
-      Center(child: Text('Home Screen')),
+      HomeScreen(),
       Center(child: Text('Customers Screen')),
       Center(child: Text('Khata Screen')),
       Center(child: Text('Orders Screen')),
