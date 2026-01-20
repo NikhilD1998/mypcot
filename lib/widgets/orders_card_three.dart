@@ -108,7 +108,6 @@ class OrdersCardThree extends StatelessWidget {
                             ],
                           ),
                           const SizedBox(height: 2),
-                          // Simple line/area chart placeholder
                           Expanded(
                             child: Align(
                               alignment: Alignment.bottomLeft,
@@ -136,67 +135,192 @@ class OrdersCardThree extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(height: 12),
-
-                    Container(
-                      margin: const EdgeInsets.only(right: 4),
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: 12,
-                        vertical: 6,
-                      ),
-                      width: 130,
-                      height: 70,
-                      decoration: BoxDecoration(
-                        color: AppColors.white,
-                        borderRadius: BorderRadius.circular(12),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.black.withOpacity(
-                              0.2,
-                            ), // Use AppColors for shadow color
-                            blurRadius: 12,
-                            offset: const Offset(0, 9),
+                    Stack(
+                      clipBehavior: Clip.none,
+                      children: [
+                        Container(
+                          margin: const EdgeInsets.only(right: 60),
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 12,
+                            vertical: 6,
                           ),
-                        ],
-                      ),
-
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Row(
-                            mainAxisSize: MainAxisSize.min,
+                          width: 130,
+                          height: 70,
+                          decoration: BoxDecoration(
+                            color: AppColors.white,
+                            borderRadius: BorderRadius.circular(12),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.black.withOpacity(0.2),
+                                blurRadius: 12,
+                                offset: const Offset(0, 9),
+                              ),
+                            ],
+                          ),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
+                              Row(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  Text(
+                                    '10',
+                                    style: const TextStyle(
+                                      fontFamily: 'Roboto',
+                                      color: AppColors.navy,
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 22,
+                                    ),
+                                  ),
+                                  const SizedBox(width: 8),
+                                  Text(
+                                    'Active',
+                                    style: const TextStyle(
+                                      fontFamily: 'Roboto',
+                                      color: AppColors.slateGray,
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 13,
+                                    ),
+                                  ),
+                                ],
+                              ),
                               Text(
-                                '119',
+                                'Customers',
                                 style: const TextStyle(
                                   fontFamily: 'Roboto',
                                   color: AppColors.navy,
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 22,
-                                ),
-                              ),
-                              const SizedBox(width: 8),
-                              Text(
-                                'Pending',
-                                style: const TextStyle(
-                                  fontFamily: 'Roboto',
-                                  color: AppColors.slateGray,
-                                  fontWeight: FontWeight.bold,
+                                  fontWeight: FontWeight.normal,
                                   fontSize: 13,
                                 ),
                               ),
                             ],
                           ),
-                          Text(
-                            'Deliveries',
-                            style: const TextStyle(
-                              fontFamily: 'Roboto',
-                              color: AppColors.navy,
-                              fontWeight: FontWeight.normal,
-                              fontSize: 13,
+                        ),
+                        Positioned(
+                          top: 15, // Adjust as needed for overlap
+                          right: -25,
+                          child: SizedBox(
+                            width: 120,
+                            height: 40,
+                            child: Stack(
+                              children: [
+                                Positioned(
+                                  left: 0,
+                                  child: Stack(
+                                    clipBehavior: Clip.none,
+                                    children: [
+                                      Container(
+                                        decoration: BoxDecoration(
+                                          shape: BoxShape.circle,
+                                          border: Border.all(
+                                            color: AppColors.cyan,
+                                            width: 2.5,
+                                          ),
+                                        ),
+                                        child: CircleAvatar(
+                                          radius: 18,
+                                          backgroundImage: AssetImage(
+                                            'assets/images/user1.jpeg',
+                                          ),
+                                          backgroundColor: Colors.transparent,
+                                        ),
+                                      ),
+                                      Positioned(
+                                        bottom:
+                                            1, // Slightly outside the avatar
+                                        right: 10,
+                                        // Slightly outside the avatar
+                                        child: Container(
+                                          width: 8,
+                                          height: 8,
+                                          decoration: BoxDecoration(
+                                            color: AppColors.green,
+                                            shape: BoxShape.circle,
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                Positioned(
+                                  left: 28,
+                                  child: Stack(
+                                    children: [
+                                      Container(
+                                        decoration: BoxDecoration(
+                                          shape: BoxShape.circle,
+                                          border: Border.all(
+                                            color: AppColors.cyan,
+                                            width: 2.5,
+                                          ),
+                                        ),
+                                        child: CircleAvatar(
+                                          radius: 18,
+                                          backgroundImage: AssetImage(
+                                            'assets/images/user2.jpeg',
+                                          ),
+                                          backgroundColor: Colors.transparent,
+                                        ),
+                                      ),
+                                      Positioned(
+                                        bottom:
+                                            1, // Slightly outside the avatar
+                                        right: 10,
+                                        // Slightly outside the avatar
+                                        child: Container(
+                                          width: 8,
+                                          height: 8,
+                                          decoration: BoxDecoration(
+                                            color: AppColors.green,
+                                            shape: BoxShape.circle,
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                Positioned(
+                                  left: 58,
+                                  child: Stack(
+                                    children: [
+                                      Container(
+                                        decoration: BoxDecoration(
+                                          shape: BoxShape.circle,
+                                          border: Border.all(
+                                            color: AppColors.cyan,
+                                            width: 2.5,
+                                          ),
+                                        ),
+                                        child: CircleAvatar(
+                                          radius: 18,
+                                          backgroundImage: AssetImage(
+                                            'assets/images/user3.jpeg',
+                                          ),
+                                          backgroundColor: Colors.transparent,
+                                        ),
+                                      ),
+                                      Positioned(
+                                        bottom:
+                                            1, // Slightly outside the avatar
+                                        right: 10,
+                                        // Slightly outside the avatar
+                                        child: Container(
+                                          width: 8,
+                                          height: 8,
+                                          decoration: BoxDecoration(
+                                            color: AppColors.green,
+                                            shape: BoxShape.circle,
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ],
                             ),
                           ),
-                        ],
-                      ),
+                        ),
+                      ],
                     ),
                   ],
                 ),
