@@ -78,7 +78,17 @@ class OrdersCardOne extends StatelessWidget {
                           decoration: BoxDecoration(
                             color: AppColors.white,
                             borderRadius: BorderRadius.circular(12),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.black.withOpacity(
+                                  0.2,
+                                ), // Use AppColors for shadow color
+                                blurRadius: 12,
+                                offset: const Offset(0, 9),
+                              ),
+                            ],
                           ),
+
                           child: Column(
                             children: [
                               Row(
@@ -187,6 +197,15 @@ class OrdersCardOne extends StatelessWidget {
             decoration: BoxDecoration(
               color: AppColors.brown,
               borderRadius: BorderRadius.circular(12),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black.withOpacity(
+                    0.2,
+                  ), // Use AppColors for shadow color
+                  blurRadius: 12,
+                  offset: const Offset(0, 9),
+                ),
+              ],
             ),
             child: Stack(
               clipBehavior: Clip.none,
