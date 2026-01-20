@@ -48,7 +48,10 @@ class _BottomNavBarState extends State<BottomNavBar> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor:
+          AppColors.lightGray, // Background color visible through notch
+      extendBody:
+          true, // This allows the body to extend behind the BottomAppBar
       body: Navigator(
         key: _navigatorKey,
         onGenerateRoute: (RouteSettings settings) {
@@ -58,89 +61,133 @@ class _BottomNavBarState extends State<BottomNavBar> {
         },
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      floatingActionButton: InkWell(
-        onTap: () {},
-        child: Container(
-          height: 64,
-          width: 64,
-          decoration: BoxDecoration(
-            color: AppColors.navy,
-            shape: BoxShape.circle,
-            boxShadow: [
-              BoxShadow(
-                color: AppColors.navy.withOpacity(0.2),
-                blurRadius: 8,
-                offset: const Offset(0, 4),
-              ),
-            ],
-          ),
-          child: const Center(
-            child: Icon(Icons.add, color: Colors.white, size: 32),
-          ),
-        ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        backgroundColor: AppColors.navy,
+        elevation: 4,
+        shape: const CircleBorder(),
+        child: const Icon(Icons.add, color: Colors.white, size: 32),
       ),
       bottomNavigationBar: BottomAppBar(
         shape: const CircularNotchedRectangle(),
         notchMargin: 8,
         elevation: 8,
+        clipBehavior: Clip.antiAlias, // Ensures proper clipping of the notch
         color: Colors.white,
         child: SizedBox(
-          height: 60, // Reduced height to prevent overflow
+          height: 60,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: List.generate(_labels.length, (index) {
-              final isActive = _selectedIndex == index;
-              return Expanded(
-                child: GestureDetector(
-                  onTap: () {
-                    if (_selectedIndex != index) {
-                      setState(() {
-                        _selectedIndex = index;
-                      });
-                      _navigatorKey.currentState?.pushAndRemoveUntil(
-                        MaterialPageRoute(
-                          builder: (context) => _screens[index],
+            children: [
+              // First two items (left side)
+              ...List.generate(2, (index) {
+                final isActive = _selectedIndex == index;
+                return Expanded(
+                  child: GestureDetector(
+                    onTap: () {
+                      if (_selectedIndex != index) {
+                        setState(() {
+                          _selectedIndex = index;
+                        });
+                        _navigatorKey.currentState?.pushAndRemoveUntil(
+                          MaterialPageRoute(
+                            builder: (context) => _screens[index],
+                          ),
+                          (route) => false,
+                        );
+                      }
+                    },
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        SvgPicture.asset(
+                          isActive
+                              ? _activeIcons[index]
+                              : _inactiveIcons[index],
+                          color: index == 0
+                              ? null
+                              : (isActive
+                                    ? AppColors.navy
+                                    : AppColors.navy.withOpacity(0.5)),
+                          width: 22,
+                          height: 22,
                         ),
-                        (route) => false,
-                      );
-                    }
-                  },
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      SvgPicture.asset(
-                        isActive ? _activeIcons[index] : _inactiveIcons[index],
-                        color: index == 0
-                            ? null
-                            : (isActive
-                                  ? AppColors.navy
-                                  : AppColors.navy.withOpacity(0.5)),
-                        width: 22,
-                        height: 22,
-                      ),
-                      const SizedBox(height: 4),
-                      Text(
-                        _labels[index],
-                        style: TextStyle(
-                          fontFamily: 'Roboto',
-                          fontWeight: isActive
-                              ? FontWeight.bold
-                              : FontWeight.normal,
-                          fontSize: 13,
+                        const SizedBox(height: 4),
+                        Text(
+                          _labels[index],
+                          style: TextStyle(
+                            fontFamily: 'Roboto',
+                            fontWeight: isActive
+                                ? FontWeight.bold
+                                : FontWeight.normal,
+                            fontSize: 13,
+                            color: isActive
+                                ? AppColors.navy
+                                : AppColors.navy.withOpacity(0.5),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                );
+              }),
+              // Empty space for FAB
+              const Expanded(child: SizedBox()),
+              // Last two items (right side)
+              ...List.generate(2, (i) {
+                final index = i + 2;
+                final isActive = _selectedIndex == index;
+                return Expanded(
+                  child: GestureDetector(
+                    onTap: () {
+                      if (_selectedIndex != index) {
+                        setState(() {
+                          _selectedIndex = index;
+                        });
+                        _navigatorKey.currentState?.pushAndRemoveUntil(
+                          MaterialPageRoute(
+                            builder: (context) => _screens[index],
+                          ),
+                          (route) => false,
+                        );
+                      }
+                    },
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        SvgPicture.asset(
+                          isActive
+                              ? _activeIcons[index]
+                              : _inactiveIcons[index],
                           color: isActive
                               ? AppColors.navy
                               : AppColors.navy.withOpacity(0.5),
+                          width: 22,
+                          height: 22,
                         ),
-                      ),
-                    ],
+                        const SizedBox(height: 4),
+                        Text(
+                          _labels[index],
+                          style: TextStyle(
+                            fontFamily: 'Roboto',
+                            fontWeight: isActive
+                                ? FontWeight.bold
+                                : FontWeight.normal,
+                            fontSize: 13,
+                            color: isActive
+                                ? AppColors.navy
+                                : AppColors.navy.withOpacity(0.5),
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
-                ),
-              );
-            }),
+                );
+              }),
+            ],
           ),
         ),
       ),
-      bottomSheet: Container(height: 0),
     );
   }
 }
