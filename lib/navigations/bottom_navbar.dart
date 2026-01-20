@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:mypcot_assignment/helpers/colors.dart';
 import 'package:mypcot_assignment/screens/home_screen.dart';
 
@@ -18,18 +19,19 @@ class _BottomNavBarState extends State<BottomNavBar> {
 
   final List<String> _labels = ['Home', 'Customers', 'Khata', 'Orders'];
 
-  static const List<IconData> _activeIcons = [
-    Icons.home,
-    Icons.people,
-    Icons.receipt_long,
-    Icons.assignment,
+  // Use SVG asset paths for icons
+  static const List<String> _activeIcons = [
+    'assets/icons/Group 910.svg', // Home (filled)
+    'assets/icons/Group 912.svg', // Customers (outlined)
+    'assets/icons/Group 913.svg', // Khata (outlined)
+    'assets/icons/Group 914.svg', // Orders (outlined)
   ];
 
-  static const List<IconData> _inactiveIcons = [
-    Icons.home_outlined,
-    Icons.people_outline,
-    Icons.receipt_long_outlined,
-    Icons.assignment_outlined,
+  static const List<String> _inactiveIcons = [
+    'assets/icons/Group 910.svg', // Home (filled, since outlined not available)
+    'assets/icons/Group 912.svg',
+    'assets/icons/Group 913.svg',
+    'assets/icons/Group 914.svg',
   ];
 
   @override
@@ -89,7 +91,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
             children: List.generate(_labels.length, (index) {
               final isActive = _selectedIndex == index;
               return Expanded(
-                child: InkWell(
+                child: GestureDetector(
                   onTap: () {
                     if (_selectedIndex != index) {
                       setState(() {
@@ -106,13 +108,19 @@ class _BottomNavBarState extends State<BottomNavBar> {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Icon(
+                      // ...existing code...
+                      SvgPicture.asset(
                         isActive ? _activeIcons[index] : _inactiveIcons[index],
-                        color: isActive
-                            ? AppColors.navy
-                            : AppColors.navy.withOpacity(0.5),
-                        size: 28,
+                        // Only apply color for non-home icons
+                        color: index == 0
+                            ? null
+                            : (isActive
+                                  ? AppColors.navy
+                                  : AppColors.navy.withOpacity(0.5)),
+                        width: 22,
+                        height: 22,
                       ),
+                      // ...existing code...,
                       const SizedBox(height: 4),
                       Text(
                         _labels[index],

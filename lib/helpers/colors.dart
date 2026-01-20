@@ -17,6 +17,8 @@ class AppColors {
   static const Color slateGray = Color(0xFF7c8aa9);
   static const Color cyan = Color(0xFF2CE2FF);
   static const Color lavender = Color(0xFF5f7096);
+  static const Color lightPeriwinkle = Color(0xFFC7D7FC);
+  static const Color teal2 = Color(0xFF008080);
 }
 
 // ...existing code...
