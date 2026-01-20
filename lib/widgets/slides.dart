@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mypcot_assignment/widgets/orders_card_one.dart';
+import 'package:mypcot_assignment/widgets/orders_card_three.dart';
 import 'package:mypcot_assignment/widgets/orders_card_two.dart';
 
 class Slides extends StatelessWidget {
@@ -8,7 +9,13 @@ class Slides extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      children: [OrdersCardOne(), SizedBox(height: 20), OrdersCardTwo()],
+      children: [
+        OrdersCardOne(),
+        SizedBox(height: 20),
+        OrdersCardTwo(),
+        SizedBox(height: 20),
+        OrdersCardThree(),
+      ],
     );
   }
 }

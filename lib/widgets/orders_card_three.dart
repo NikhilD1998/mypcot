@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:mypcot_assignment/helpers/colors.dart';
 
-class OrdersCardTwo extends StatelessWidget {
-  const OrdersCardTwo({super.key});
+class OrdersCardThree extends StatelessWidget {
+  const OrdersCardThree({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +16,7 @@ class OrdersCardTwo extends StatelessWidget {
           width: double.infinity,
           padding: const EdgeInsets.all(16),
           decoration: BoxDecoration(
-            color: AppColors.yellow,
+            color: AppColors.green,
             borderRadius: BorderRadius.circular(24),
           ),
           child: Row(
@@ -27,17 +27,17 @@ class OrdersCardTwo extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   SvgPicture.asset(
-                    'assets/icons/subscriptions-illustration-image.svg',
+                    'assets/icons/customers-illustration-image.svg',
                     height: 140,
                     fit: BoxFit.contain,
                   ),
                   SizedBox(height: 12),
                   SizedBox(
                     height: 40,
-                    width: 120,
+                    width: 130,
                     child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: AppColors.royalBlue,
+                        backgroundColor: AppColors.pink,
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(12),
                         ),
@@ -45,7 +45,7 @@ class OrdersCardTwo extends StatelessWidget {
                       ),
                       onPressed: () {},
                       child: Text(
-                        'Subscriptions',
+                        'View Customers',
                         style: const TextStyle(
                           fontFamily: 'Roboto',
                           color: Colors.white,
@@ -76,23 +76,22 @@ class OrdersCardTwo extends StatelessWidget {
                         borderRadius: BorderRadius.circular(12),
                         boxShadow: [
                           BoxShadow(
-                            color: Colors.black.withOpacity(
-                              0.2,
+                            color: AppColors.green.withOpacity(
+                              0.12,
                             ), // Use AppColors for shadow color
                             blurRadius: 12,
-                            offset: const Offset(0, 9),
+                            offset: const Offset(0, 4),
                           ),
                         ],
                       ),
-
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Row(
-                            mainAxisSize: MainAxisSize.min,
+                            crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                '10',
+                                '1.8%',
                                 style: const TextStyle(
                                   fontFamily: 'Roboto',
                                   color: AppColors.navy,
@@ -100,25 +99,37 @@ class OrdersCardTwo extends StatelessWidget {
                                   fontSize: 22,
                                 ),
                               ),
-                              const SizedBox(width: 8),
-                              Text(
-                                'Active',
-                                style: const TextStyle(
-                                  fontFamily: 'Roboto',
-                                  color: AppColors.slateGray,
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 13,
-                                ),
+                              const SizedBox(width: 4),
+                              Icon(
+                                Icons.arrow_upward,
+                                color: AppColors.green,
+                                size: 20,
                               ),
                             ],
                           ),
-                          Text(
-                            'Subscriptions',
-                            style: const TextStyle(
-                              fontFamily: 'Roboto',
-                              color: AppColors.navy,
-                              fontWeight: FontWeight.normal,
-                              fontSize: 13,
+                          const SizedBox(height: 2),
+                          // Simple line/area chart placeholder
+                          Expanded(
+                            child: Align(
+                              alignment: Alignment.bottomLeft,
+                              child: Container(
+                                width: double.infinity,
+                                height: 24,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(6),
+                                  gradient: LinearGradient(
+                                    begin: Alignment.topCenter,
+                                    end: Alignment.bottomCenter,
+                                    colors: [
+                                      AppColors.green.withOpacity(0.18),
+                                      AppColors.green.withOpacity(0.05),
+                                    ],
+                                  ),
+                                ),
+                                child: CustomPaint(
+                                  painter: _MiniChartPainter(),
+                                ),
+                              ),
                             ),
                           ),
                         ],
@@ -195,13 +206,13 @@ class OrdersCardTwo extends StatelessWidget {
         ),
         Positioned(
           top: -18,
-          right: 92,
+          right: 72,
           child: Container(
-            width: 120,
+            width: 150,
             height: 80,
             padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
             decoration: BoxDecoration(
-              color: AppColors.royalBlue,
+              color: AppColors.pink,
               borderRadius: BorderRadius.circular(12),
               boxShadow: [
                 BoxShadow(
@@ -230,13 +241,13 @@ class OrdersCardTwo extends StatelessWidget {
                         ),
                         children: [
                           TextSpan(
-                            text: '03',
+                            text: '15',
                             style: const TextStyle(
                               fontWeight: FontWeight.bold,
                               fontSize: 18,
                             ),
                           ),
-                          const TextSpan(text: ' deliveries'),
+                          const TextSpan(text: ' New customers'),
                         ],
                       ),
                     ),
@@ -245,7 +256,7 @@ class OrdersCardTwo extends StatelessWidget {
                 // Stacked Avatars above the container
                 Positioned(
                   bottom: -20, // Adjust as needed for overlap
-                  left: 6,
+                  left: 15,
                   child: SizedBox(
                     width: 120,
                     height: 40,
@@ -258,7 +269,7 @@ class OrdersCardTwo extends StatelessWidget {
                               shape: BoxShape.circle,
                               border: Border.all(
                                 color: AppColors
-                                    .royalBlue, // Use AppColors.white or any color you want for the border
+                                    .green, // Use AppColors.white or any color you want for the border
                                 width: 2.5,
                               ),
                             ),
@@ -278,7 +289,7 @@ class OrdersCardTwo extends StatelessWidget {
                               shape: BoxShape.circle,
                               border: Border.all(
                                 color: AppColors
-                                    .royalBlue, // Use AppColors.white or any color you want for the border
+                                    .green, // Use AppColors.white or any color you want for the border
                                 width: 2.5,
                               ),
                             ),
@@ -297,7 +308,7 @@ class OrdersCardTwo extends StatelessWidget {
                               shape: BoxShape.circle,
                               border: Border.all(
                                 color: AppColors
-                                    .royalBlue, // Use AppColors.white or any color you want for the border
+                                    .green, // Use AppColors.white or any color you want for the border
                                 width: 2.5,
                               ),
                             ),
@@ -305,6 +316,30 @@ class OrdersCardTwo extends StatelessWidget {
                               radius: 18,
                               backgroundImage: AssetImage(
                                 'assets/images/user3.jpeg',
+                              ),
+                            ),
+                          ),
+                        ),
+                        Positioned(
+                          left: 75,
+                          bottom: 8,
+                          child: Container(
+                            decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              color: Colors.white,
+                              border: Border.all(
+                                color: AppColors
+                                    .green, // Match the border color of other avatars
+                                width: 2.5,
+                              ),
+                            ),
+                            width: 24,
+                            height: 24,
+                            child: Center(
+                              child: Icon(
+                                Icons.add,
+                                color: AppColors.green,
+                                size: 12,
                               ),
                             ),
                           ),
@@ -320,4 +355,27 @@ class OrdersCardTwo extends StatelessWidget {
       ],
     );
   }
+}
+
+class _MiniChartPainter extends CustomPainter {
+  @override
+  void paint(Canvas canvas, Size size) {
+    final paint = Paint()
+      ..color = AppColors.green
+      ..strokeWidth = 2
+      ..style = PaintingStyle.stroke;
+
+    final path = Path();
+    path.moveTo(0, size.height * 0.8);
+    path.lineTo(size.width * 0.2, size.height * 0.6);
+    path.lineTo(size.width * 0.4, size.height * 0.7);
+    path.lineTo(size.width * 0.6, size.height * 0.4);
+    path.lineTo(size.width * 0.8, size.height * 0.6);
+    path.lineTo(size.width, size.height * 0.3);
+
+    canvas.drawPath(path, paint);
+  }
+
+  @override
+  bool shouldRepaint(covariant CustomPainter oldDelegate) => false;
 }

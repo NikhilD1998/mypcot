@@ -49,7 +49,6 @@ class OrdersCardOne extends StatelessWidget {
                         style: const TextStyle(
                           fontFamily: 'Roboto',
                           color: Colors.white,
-                          fontWeight: FontWeight.bold,
                           fontSize: 15,
                         ),
                       ),
