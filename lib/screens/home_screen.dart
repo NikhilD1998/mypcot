@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:mypcot_assignment/helpers/colors.dart';
+import 'package:mypcot_assignment/widgets/top_bar.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -15,9 +16,40 @@ class HomeScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              const TopBar(),
+              const SizedBox(height: 24),
+
+              // Welcome Text
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Welcome, Mypcot !!',
+                        style: const TextStyle(
+                          fontFamily: 'Roboto',
+                          color: AppColors.navy,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 22,
+                        ),
+                      ),
+                      const SizedBox(height: 4),
+                      Text(
+                        'here is your dashboard....',
+                        style: const TextStyle(
+                          fontFamily: 'Roboto',
+                          color: AppColors.navy,
+                          fontWeight: FontWeight.normal,
+                          fontSize: 14,
+                          height: 1.2,
+                        ),
+                      ),
+                      const SizedBox(height: 24),
+                    ],
+                  ),
                   Container(
                     decoration: BoxDecoration(
                       color: AppColors.white,
@@ -30,109 +62,15 @@ class HomeScreen extends StatelessWidget {
                         ),
                       ],
                     ),
-                    padding: const EdgeInsets.all(14),
+                    padding: const EdgeInsets.all(12),
                     child: SizedBox(
-                      width: 16,
-                      height: 16,
-                      child: SvgPicture.asset('assets/icons/Group 919.svg'),
+                      width: 24,
+                      height: 24,
+                      child: SvgPicture.asset('assets/icons/Group 918.svg'),
                     ),
-                  ),
-                  Row(
-                    children: [
-                      Container(
-                        decoration: BoxDecoration(
-                          color: AppColors.white,
-                          shape: BoxShape.circle,
-                          boxShadow: [
-                            BoxShadow(
-                              color: AppColors.navy.withOpacity(0.08),
-                              blurRadius: 8,
-                              offset: const Offset(0, 2),
-                            ),
-                          ],
-                        ),
-                        padding: const EdgeInsets.all(12),
-                        child: SizedBox(
-                          width: 24,
-                          height: 24,
-                          child: SvgPicture.asset('assets/icons/Group 916.svg'),
-                        ),
-                      ),
-                      const SizedBox(width: 12),
-                      // Notification
-                      Container(
-                        decoration: BoxDecoration(
-                          color: AppColors.white,
-                          shape: BoxShape.circle,
-                          boxShadow: [
-                            BoxShadow(
-                              color: AppColors.navy.withOpacity(0.08),
-                              blurRadius: 8,
-                              offset: const Offset(0, 2),
-                            ),
-                          ],
-                        ),
-                        padding: const EdgeInsets.all(12),
-                        child: SizedBox(
-                          width: 24,
-                          height: 24,
-                          child: SvgPicture.asset('assets/icons/Group 917.svg'),
-                        ),
-                      ),
-                      const SizedBox(width: 12),
-                      // Avatar
-                      Container(
-                        decoration: BoxDecoration(
-                          color: AppColors.white,
-                          shape: BoxShape.circle,
-                          boxShadow: [
-                            BoxShadow(
-                              color: AppColors.navy.withOpacity(0.08),
-                              blurRadius: 8,
-                              offset: const Offset(0, 2),
-                            ),
-                          ],
-                        ),
-                        padding: const EdgeInsets.all(8),
-                        child: SizedBox(
-                          width: 32,
-                          height: 32,
-                          child: ClipOval(
-                            child: Image.asset(
-                              'assets/images/food1.jpeg', // Use your avatar image here; replace with actual asset if available
-                              fit: BoxFit.cover,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ],
                   ),
                 ],
               ),
-              const SizedBox(height: 24),
-
-              // Welcome Text
-              Text(
-                'Welcome, Mypcot !!',
-                style: const TextStyle(
-                  fontFamily: 'Roboto',
-                  color: AppColors.navy,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 22,
-                ),
-              ),
-              const SizedBox(height: 4),
-              Text(
-                'here is your dashboard....',
-                style: const TextStyle(
-                  fontFamily: 'Roboto',
-                  color: AppColors.navy,
-                  fontWeight: FontWeight.normal,
-                  fontSize: 14,
-                  height: 1.2,
-                ),
-              ),
-              const SizedBox(height: 24),
 
               // Orders Card
               Stack(
