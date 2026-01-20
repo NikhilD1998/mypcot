@@ -16,6 +16,7 @@ class AppColors {
   static const Color brown = Color(0xFFcc5e33);
   static const Color slateGray = Color(0xFF7c8aa9);
   static const Color cyan = Color(0xFF2CE2FF);
+  static const Color lavender = Color(0xFF5f7096);
 }
 
 // ...existing code...

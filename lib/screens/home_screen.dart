@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:mypcot_assignment/helpers/colors.dart';
 import 'package:mypcot_assignment/widgets/slides.dart';
 import 'package:mypcot_assignment/widgets/top_bar.dart';
@@ -26,7 +27,6 @@ class HomeScreen extends StatelessWidget {
 
               const SizedBox(height: 24),
 
-              // Date & Timeline Row
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -206,7 +206,7 @@ class HomeScreen extends StatelessWidget {
                             'New order created',
                             style: const TextStyle(
                               fontFamily: 'Roboto',
-                              color: AppColors.navy,
+                              color: AppColors.lavender,
                               fontWeight: FontWeight.bold,
                               fontSize: 16,
                             ),
@@ -221,8 +221,9 @@ class HomeScreen extends StatelessWidget {
                               fontSize: 13,
                             ),
                           ),
-                          const SizedBox(height: 12),
-                          Row(
+                          const SizedBox(height: 30),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
                                 '09:00 AM',
@@ -233,11 +234,11 @@ class HomeScreen extends StatelessWidget {
                                   fontSize: 13,
                                 ),
                               ),
-                              const SizedBox(width: 8),
+                              const SizedBox(height: 8),
                               const Icon(
                                 Icons.arrow_right_alt,
                                 color: AppColors.coral,
-                                size: 18,
+                                size: 22,
                               ),
                             ],
                           ),
@@ -245,24 +246,17 @@ class HomeScreen extends StatelessWidget {
                       ),
                     ),
                     Container(
-                      width: 56,
-                      height: 56,
+                      width: 80,
+                      height: 80,
                       decoration: BoxDecoration(
-                        color: AppColors.coral.withOpacity(0.1),
+                        color: AppColors.coral,
                         shape: BoxShape.circle,
                       ),
                       child: Center(
-                        child: Image.asset(
-                          'assets/icons/orders.png', // Placeholder
-                          width: 32,
-                          height: 32,
-                          fit: BoxFit.contain,
-                          errorBuilder: (context, error, stackTrace) =>
-                              const Icon(
-                                Icons.assignment,
-                                size: 32,
-                                color: AppColors.coral,
-                              ),
+                        child: SvgPicture.asset(
+                          'assets/icons/Group 900.svg',
+                          width: 60,
+                          height: 60,
                         ),
                       ),
                     ),
