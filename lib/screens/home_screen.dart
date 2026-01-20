@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mypcot_assignment/helpers/colors.dart';
+import 'package:mypcot_assignment/widgets/slides.dart';
 import 'package:mypcot_assignment/widgets/top_bar.dart';
 import 'package:mypcot_assignment/widgets/welcome_section.dart';
 
@@ -9,7 +10,7 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.white,
+      backgroundColor: AppColors.lightGray,
       body: SafeArea(
         child: SingleChildScrollView(
           padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
@@ -19,223 +20,10 @@ class HomeScreen extends StatelessWidget {
               const TopBar(),
               const SizedBox(height: 24),
 
-              // Welcome Text
               const WelcomeSection(),
 
-              // Orders Card
-              Stack(
-                children: [
-                  Container(
-                    width: double.infinity,
-                    padding: const EdgeInsets.all(16),
-                    decoration: BoxDecoration(
-                      color: AppColors.blue,
-                      borderRadius: BorderRadius.circular(24),
-                    ),
-                    child: Row(
-                      children: [
-                        // Orders Illustration
-                        Container(
-                          width: 100,
-                          height: 100,
-                          decoration: BoxDecoration(
-                            color: AppColors.white,
-                            shape: BoxShape.circle,
-                          ),
-                          child: Center(
-                            child: Image.asset(
-                              'assets/icons/orders.png', // Placeholder
-                              width: 60,
-                              height: 60,
-                              fit: BoxFit.contain,
-                              errorBuilder: (context, error, stackTrace) =>
-                                  const Icon(
-                                    Icons.assignment,
-                                    size: 48,
-                                    color: AppColors.navy,
-                                  ),
-                            ),
-                          ),
-                        ),
-                        const SizedBox(width: 12),
-                        // Orders Info
-                        Expanded(
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              // Active Orders
-                              Container(
-                                padding: const EdgeInsets.symmetric(
-                                  horizontal: 12,
-                                  vertical: 6,
-                                ),
-                                decoration: BoxDecoration(
-                                  color: AppColors.coral,
-                                  borderRadius: BorderRadius.circular(12),
-                                ),
-                                child: Row(
-                                  mainAxisSize: MainAxisSize.min,
-                                  children: [
-                                    Text(
-                                      'You have ',
-                                      style: const TextStyle(
-                                        fontFamily: 'Roboto',
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.normal,
-                                        fontSize: 13,
-                                      ),
-                                    ),
-                                    Text(
-                                      '3',
-                                      style: const TextStyle(
-                                        fontFamily: 'Roboto',
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 15,
-                                      ),
-                                    ),
-                                    Text(
-                                      ' active orders',
-                                      style: const TextStyle(
-                                        fontFamily: 'Roboto',
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.normal,
-                                        fontSize: 13,
-                                      ),
-                                    ),
-                                    const SizedBox(width: 8),
-                                    // Avatars
-                                    SizedBox(
-                                      width: 32,
-                                      height: 24,
-                                      child: Stack(
-                                        children: [
-                                          Positioned(
-                                            left: 0,
-                                            child: CircleAvatar(
-                                              radius: 12,
-                                              backgroundImage: AssetImage(
-                                                'assets/images/user1.jpeg',
-                                              ),
-                                            ),
-                                          ),
-                                          Positioned(
-                                            left: 16,
-                                            child: CircleAvatar(
-                                              radius: 12,
-                                              backgroundImage: AssetImage(
-                                                'assets/images/user2.jpeg',
-                                              ),
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                              const SizedBox(height: 12),
-                              // Pending Orders
-                              Row(
-                                children: [
-                                  Text(
-                                    '02',
-                                    style: const TextStyle(
-                                      fontFamily: 'Roboto',
-                                      color: AppColors.navy,
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 22,
-                                    ),
-                                  ),
-                                  const SizedBox(width: 8),
-                                  Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Text(
-                                        'Pending',
-                                        style: const TextStyle(
-                                          fontFamily: 'Roboto',
-                                          color: AppColors.navy,
-                                          fontWeight: FontWeight.bold,
-                                          fontSize: 13,
-                                        ),
-                                      ),
-                                      Text(
-                                        'Orders from',
-                                        style: const TextStyle(
-                                          fontFamily: 'Roboto',
-                                          color: AppColors.navy,
-                                          fontWeight: FontWeight.normal,
-                                          fontSize: 13,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                  const SizedBox(width: 8),
-                                  // Avatars
-                                  SizedBox(
-                                    width: 32,
-                                    height: 24,
-                                    child: Stack(
-                                      children: [
-                                        Positioned(
-                                          left: 0,
-                                          child: CircleAvatar(
-                                            radius: 12,
-                                            backgroundImage: AssetImage(
-                                              'assets/images/user3.jpeg',
-                                            ),
-                                          ),
-                                        ),
-                                        Positioned(
-                                          left: 16,
-                                          child: CircleAvatar(
-                                            radius: 12,
-                                            backgroundImage: AssetImage(
-                                              'assets/images/user4.jpeg',
-                                            ),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                ],
-                              ),
-                              const SizedBox(height: 12),
-                              // Orders Button
-                              SizedBox(
-                                width: 100,
-                                child: ElevatedButton(
-                                  style: ElevatedButton.styleFrom(
-                                    backgroundColor: AppColors.coral,
-                                    shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(12),
-                                    ),
-                                    padding: const EdgeInsets.symmetric(
-                                      vertical: 8,
-                                    ),
-                                  ),
-                                  onPressed: () {},
-                                  child: Text(
-                                    'Orders',
-                                    style: const TextStyle(
-                                      fontFamily: 'Roboto',
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 15,
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
+              const OrdersCard(),
+
               const SizedBox(height: 24),
 
               // Date & Timeline Row
