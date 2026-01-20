@@ -22,7 +22,7 @@ class HomeScreen extends StatelessWidget {
 
               const WelcomeSection(),
 
-              const OrdersCard(),
+              const Slides(),
 
               const SizedBox(height: 24),
 
