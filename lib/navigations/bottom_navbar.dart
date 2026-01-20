@@ -108,10 +108,8 @@ class _BottomNavBarState extends State<BottomNavBar> {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      // ...existing code...
                       SvgPicture.asset(
                         isActive ? _activeIcons[index] : _inactiveIcons[index],
-                        // Only apply color for non-home icons
                         color: index == 0
                             ? null
                             : (isActive
@@ -120,7 +118,6 @@ class _BottomNavBarState extends State<BottomNavBar> {
                         width: 22,
                         height: 22,
                       ),
-                      // ...existing code...,
                       const SizedBox(height: 4),
                       Text(
                         _labels[index],
