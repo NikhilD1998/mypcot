@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:mypcot_assignment/helpers/colors.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -14,15 +15,13 @@ class HomeScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // Top bar
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  // Hamburger
                   Container(
                     decoration: BoxDecoration(
                       color: AppColors.white,
-                      borderRadius: BorderRadius.circular(12),
+                      shape: BoxShape.circle,
                       boxShadow: [
                         BoxShadow(
                           color: AppColors.navy.withOpacity(0.08),
@@ -31,12 +30,15 @@ class HomeScreen extends StatelessWidget {
                         ),
                       ],
                     ),
-                    padding: const EdgeInsets.all(8),
-                    child: const Icon(Icons.menu, color: AppColors.navy),
+                    padding: const EdgeInsets.all(14),
+                    child: SizedBox(
+                      width: 16,
+                      height: 16,
+                      child: SvgPicture.asset('assets/icons/Group 919.svg'),
+                    ),
                   ),
                   Row(
                     children: [
-                      // Location
                       Container(
                         decoration: BoxDecoration(
                           color: AppColors.white,

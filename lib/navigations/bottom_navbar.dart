@@ -46,6 +46,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       body: Navigator(
         key: _navigatorKey,
         onGenerateRoute: (RouteSettings settings) {
