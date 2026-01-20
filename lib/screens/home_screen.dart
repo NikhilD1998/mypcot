@@ -42,7 +42,7 @@ class HomeScreen extends StatelessWidget {
                       Container(
                         decoration: BoxDecoration(
                           color: AppColors.white,
-                          borderRadius: BorderRadius.circular(12),
+                          shape: BoxShape.circle,
                           boxShadow: [
                             BoxShadow(
                               color: AppColors.navy.withOpacity(0.08),
@@ -51,10 +51,11 @@ class HomeScreen extends StatelessWidget {
                             ),
                           ],
                         ),
-                        padding: const EdgeInsets.all(8),
-                        child: const Icon(
-                          Icons.location_on_outlined,
-                          color: AppColors.navy,
+                        padding: const EdgeInsets.all(12),
+                        child: SizedBox(
+                          width: 24,
+                          height: 24,
+                          child: SvgPicture.asset('assets/icons/Group 916.svg'),
                         ),
                       ),
                       const SizedBox(width: 12),
@@ -62,7 +63,7 @@ class HomeScreen extends StatelessWidget {
                       Container(
                         decoration: BoxDecoration(
                           color: AppColors.white,
-                          borderRadius: BorderRadius.circular(12),
+                          shape: BoxShape.circle,
                           boxShadow: [
                             BoxShadow(
                               color: AppColors.navy.withOpacity(0.08),
@@ -71,10 +72,11 @@ class HomeScreen extends StatelessWidget {
                             ),
                           ],
                         ),
-                        padding: const EdgeInsets.all(8),
-                        child: const Icon(
-                          Icons.notifications_none,
-                          color: AppColors.navy,
+                        padding: const EdgeInsets.all(12),
+                        child: SizedBox(
+                          width: 24,
+                          height: 24,
+                          child: SvgPicture.asset('assets/icons/Group 917.svg'),
                         ),
                       ),
                       const SizedBox(width: 12),
@@ -82,7 +84,7 @@ class HomeScreen extends StatelessWidget {
                       Container(
                         decoration: BoxDecoration(
                           color: AppColors.white,
-                          borderRadius: BorderRadius.circular(12),
+                          shape: BoxShape.circle,
                           boxShadow: [
                             BoxShadow(
                               color: AppColors.navy.withOpacity(0.08),
@@ -92,11 +94,15 @@ class HomeScreen extends StatelessWidget {
                           ],
                         ),
                         padding: const EdgeInsets.all(8),
-                        child: CircleAvatar(
-                          radius: 14,
-                          backgroundImage: AssetImage(
-                            'assets/images/user1.jpeg',
-                          ), // Placeholder
+                        child: SizedBox(
+                          width: 32,
+                          height: 32,
+                          child: ClipOval(
+                            child: Image.asset(
+                              'assets/images/food1.jpeg', // Use your avatar image here; replace with actual asset if available
+                              fit: BoxFit.cover,
+                            ),
+                          ),
                         ),
                       ),
                     ],
