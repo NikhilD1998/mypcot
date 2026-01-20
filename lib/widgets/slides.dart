@@ -61,43 +61,49 @@ class OrdersCard extends StatelessWidget {
               // Info Column
               Expanded(
                 child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
-                    const SizedBox(height: 36), // Space for the stacked card
-                    // Pending Orders Card
-                    Container(
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: 12,
-                        vertical: 6,
-                      ),
-                      decoration: BoxDecoration(
-                        color: AppColors.white,
-                        borderRadius: BorderRadius.circular(12),
-                      ),
-                      child: Row(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          Text(
-                            '02',
-                            style: const TextStyle(
-                              fontFamily: 'Roboto',
-                              color: AppColors.navy,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 22,
-                            ),
+                    const SizedBox(height: 80), // Space for the stacked card
+                    Stack(
+                      clipBehavior: Clip.none,
+                      children: [
+                        Container(
+                          margin: const EdgeInsets.only(right: 20),
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 12,
+                            vertical: 6,
                           ),
-                          const SizedBox(width: 8),
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
+                          width: 120,
+                          height: 80,
+                          decoration: BoxDecoration(
+                            color: AppColors.white,
+                            borderRadius: BorderRadius.circular(12),
+                          ),
+                          child: Column(
                             children: [
-                              Text(
-                                'Pending',
-                                style: const TextStyle(
-                                  fontFamily: 'Roboto',
-                                  color: AppColors.navy,
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 13,
-                                ),
+                              Row(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  Text(
+                                    '02',
+                                    style: const TextStyle(
+                                      fontFamily: 'Roboto',
+                                      color: AppColors.navy,
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 22,
+                                    ),
+                                  ),
+                                  const SizedBox(width: 8),
+                                  Text(
+                                    'Pending',
+                                    style: const TextStyle(
+                                      fontFamily: 'Roboto',
+                                      color: AppColors.slateGray,
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 13,
+                                    ),
+                                  ),
+                                ],
                               ),
                               Text(
                                 'Orders from',
@@ -110,36 +116,59 @@ class OrdersCard extends StatelessWidget {
                               ),
                             ],
                           ),
-                          const SizedBox(width: 8),
-                          // Avatars
-                          SizedBox(
-                            width: 44,
-                            height: 24,
+                        ),
+                        Positioned(
+                          bottom: -20, // Adjust as needed for overlap
+                          left: 30,
+                          child: SizedBox(
+                            width: 120,
+                            height: 40,
                             child: Stack(
                               children: [
                                 Positioned(
                                   left: 0,
-                                  child: CircleAvatar(
-                                    radius: 12,
-                                    backgroundImage: AssetImage(
-                                      'assets/images/user4.jpeg',
+                                  child: Container(
+                                    decoration: BoxDecoration(
+                                      shape: BoxShape.circle,
+                                      border: Border.all(
+                                        color: AppColors
+                                            .brown, // Use AppColors.white or any color you want for the border
+                                        width: 2.5,
+                                      ),
+                                    ),
+                                    child: CircleAvatar(
+                                      radius: 18,
+                                      backgroundImage: AssetImage(
+                                        'assets/images/user1.jpeg',
+                                      ),
+                                      backgroundColor: Colors.transparent,
                                     ),
                                   ),
                                 ),
                                 Positioned(
-                                  left: 18,
-                                  child: CircleAvatar(
-                                    radius: 12,
-                                    backgroundImage: AssetImage(
-                                      'assets/images/user5.jpeg',
+                                  left: 24,
+                                  child: Container(
+                                    decoration: BoxDecoration(
+                                      shape: BoxShape.circle,
+                                      border: Border.all(
+                                        color: AppColors
+                                            .brown, // Use AppColors.white or any color you want for the border
+                                        width: 2.5,
+                                      ),
+                                    ),
+                                    child: CircleAvatar(
+                                      radius: 18,
+                                      backgroundImage: AssetImage(
+                                        'assets/images/user2.jpeg',
+                                      ),
                                     ),
                                   ),
                                 ),
                               ],
                             ),
                           ),
-                        ],
-                      ),
+                        ),
+                      ],
                     ),
                     const SizedBox(height: 12),
                   ],
@@ -150,7 +179,7 @@ class OrdersCard extends StatelessWidget {
         ),
         Positioned(
           top: -18,
-          right: 32,
+          right: 56,
           child: Container(
             width: 150,
             height: 80,
