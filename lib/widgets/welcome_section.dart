@@ -34,7 +34,7 @@ class WelcomeSection extends StatelessWidget {
                 height: 1.2,
               ),
             ),
-            const SizedBox(height: 24),
+            const SizedBox(height: 64),
           ],
         ),
         Container(
